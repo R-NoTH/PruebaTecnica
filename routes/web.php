@@ -17,4 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/imports', ImportController::class);
+// Route::resource('/imports', ImportController::class);
+Route::get(
+    '/imports',
+    [ImportController::class, 'importForm']
+)->name('importForm');
+
+Route::post(
+    '/imports',
+    [ImportController::class, 'import']
+)->name('imports');
