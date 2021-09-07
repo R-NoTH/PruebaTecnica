@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PagosExport;
 use App\Imports\ClientesImport;
 use App\Imports\ClientessImport;
 use App\Imports\PagosImport;
@@ -29,23 +30,16 @@ class ImportController extends Controller
     }
     public function importPago(Request $request)
     {
-        // $file = request()->file;
-        // $import = new ClientesImport();
-        // Excel::import($import, $file);
-        // return view('importExcel.index', ['numRows' => $import->getRowCount()]);
-        // dd($request->file);
         $file = $request->file;
+        $import = new PagosImport;
+        Excel::import($import, $file);
+        return view('importExcel.index', ['numRows' => $import->getRowCount()]);
 
-        Excel::import(new PagosImport, $file);
-        return "La importacion de Pagos a sido satisfactoria";
+        // return "La importacion de Pagos a sido satisfactoria";
     }
     public function updatePago(Request $request)
     {
-        // $file = request()->file;
-        // $import = new ClientesImport();
-        // Excel::import($import, $file);
-        // return view('importExcel.index', ['numRows' => $import->getRowCount()]);
-        // dd($request->file);
+
         $file = $request->file;
 
         Excel::import(new UpdatePagosImport, $file);
@@ -53,10 +47,6 @@ class ImportController extends Controller
     }
     public function export()
     {
-
-        $nameCliente = Base_pago::all();
-        dd($nameCliente);
-
-        // return $comment->post->title;
+        return Excel::download(new PagosExport, 'PagosExport.xlsx');
     }
 }
