@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Imports\ClientesImport;
+use App\Imports\ClientessImport;
+use App\Imports\PagosImport;
+use App\Imports\UpdatePagosImport;
+use App\Models\Base_pago;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -13,13 +17,46 @@ class ImportController extends Controller
     {
         return view('importExcel.index');
     }
-    public function import(Request $request)
+    public function importCliente(Request $request)
     {
-        $file = request()->file;
-        $import = new ClientesImport();
-        Excel::import($import, $file);
-        return view('importExcel.index', ['numRows' => $import->getRowCount()]);
-        // Excel::import(new ClientesImport, $request->file);
-        // return "record are umported successfully";
+        // $file = request()->file;
+        // $import = new ClientesImport();
+        // Excel::import($import, $file);
+        // return view('importExcel.index', ['numRows' => $import->getRowCount()]);
+        $file = $request->file;
+        Excel::import(new ClientesImport, $file);
+        return "La importacion de Clientes a sido satisfactoria";
+    }
+    public function importPago(Request $request)
+    {
+        // $file = request()->file;
+        // $import = new ClientesImport();
+        // Excel::import($import, $file);
+        // return view('importExcel.index', ['numRows' => $import->getRowCount()]);
+        // dd($request->file);
+        $file = $request->file;
+
+        Excel::import(new PagosImport, $file);
+        return "La importacion de Pagos a sido satisfactoria";
+    }
+    public function updatePago(Request $request)
+    {
+        // $file = request()->file;
+        // $import = new ClientesImport();
+        // Excel::import($import, $file);
+        // return view('importExcel.index', ['numRows' => $import->getRowCount()]);
+        // dd($request->file);
+        $file = $request->file;
+
+        Excel::import(new UpdatePagosImport, $file);
+        return "La importacion de Pagos a sido satisfactoria";
+    }
+    public function export()
+    {
+
+        $nameCliente = Base_pago::all();
+        dd($nameCliente);
+
+        // return $comment->post->title;
     }
 }

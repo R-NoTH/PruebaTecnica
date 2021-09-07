@@ -24,6 +24,21 @@ Route::get(
 )->name('importForm');
 
 Route::post(
-    '/imports',
-    [ImportController::class, 'import']
-)->name('imports');
+    '/imports/clientes',
+    [ImportController::class, 'importCliente']
+)->name('importClientes');
+
+Route::post(
+    '/imports/pagos',
+    [ImportController::class, 'importPago']
+)->name('importPagos');
+
+Route::post(
+    '/imports/updatePagos',
+    [ImportController::class, 'updatePago']
+)->name('updatePagos');
+
+Route::get(
+    '/exports',
+    [ImportController::class, 'export']
+)->name('exports');
