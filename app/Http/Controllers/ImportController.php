@@ -30,7 +30,7 @@ class ImportController extends Controller
 
         Excel::import($importClientes, $file);
 
-        return view('importExcel.index', ['numRows' => $importClientes->getRowCount()]);
+        return 'Registros Importados : ' . $importClientes->getRowCount();
     }
     public function importPago(Request $request)
     {
@@ -39,7 +39,7 @@ class ImportController extends Controller
 
         Excel::import($import, $file);
 
-        return view('importExcel.index', ['numRows' => $import->getRowCount()]);
+        return 'Registros Importados : ' . $import->getRowCount();
     }
     public function updatePago(Request $request)
     {
@@ -52,15 +52,12 @@ class ImportController extends Controller
             'registroActualizacion' => $date,
         ]);
 
-        return view('importExcel.index');
+        return 'Actualizados con Exito';
     }
     public function export()
     {
         $db = new Base_cliente();
         $arrayConsulta = $db->consultaIdRepetidos();
-        foreach ($arrayConsulta as  $value) {
-            dd($value->dni);
-        }
         $pagosExport = new PagosExport;
 
         return Excel::download($pagosExport, 'PagosExport.xlsx');

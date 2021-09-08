@@ -22,7 +22,7 @@ class CreateBaseClientesTable extends Migration
             $table->integer('fifolio')->nullable();
             $table->integer('periodo_atraso')->nullable();
             $table->integer('dia_atraso')->nullable();
-            $table->double('requerido')->nullable(); //este podria cambiase a string o double
+            $table->double('requerido')->nullable();
             $table->string('fcctenombre')->nullable();
             $table->integer('dni')->nullable();
             $table->string('fcctesexo')->nullable();
@@ -36,7 +36,7 @@ class CreateBaseClientesTable extends Migration
             $table->string('tipocliente')->nullable();
             $table->integer('dia_pago')->nullable();
             $table->string('riesgo')->nullable();
-            $table->double('capital')->nullable(); //double o interger o string para evitar problemas
+            $table->double('capital')->nullable();
             $table->string('rangocapital')->nullable();
             $table->double('cap_vigrp')->nullable();
             $table->double('cap_exigp')->nullable();
@@ -52,12 +52,12 @@ class CreateBaseClientesTable extends Migration
             $table->double('saldototal')->nullable();
             $table->double('cuota')->nullable();
             $table->integer('escastigo')->nullable();
-            $table->string('fcastigado')->nullable(); //fecha
+            $table->string('fcastigado')->nullable();
             $table->double('provision_baz')->nullable();
             $table->integer('centrogestor')->nullable();
-            $table->string('fecha_surt')->nullable(); //fecha
-            $table->string('fultimopago')->nullable(); //fecha
-            $table->string('fechaproxpago')->nullable(); //fecha
+            $table->string('fecha_surt')->nullable();
+            $table->string('fultimopago')->nullable();
+            $table->string('fechaproxpago')->nullable();
             $table->string('fcdircalle')->nullable();
             $table->string('fcdirnoext')->nullable();
             $table->string('fcdirnoint')->nullable();

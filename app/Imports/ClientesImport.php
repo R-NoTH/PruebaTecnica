@@ -97,11 +97,6 @@ class ClientesImport implements
             'dcto_recovery' => $row['dcto_recovery'],
             'monto_campana' => $row['monto_campana'],
 
-            // 'nombre' => $row['nombre'],
-            // 'apellido' => $row['apellido'],
-            // 'numero' => $row['numero'],
-
-
         ]);
     }
     public function rules(): array
@@ -165,12 +160,6 @@ class ClientesImport implements
             'rango_castigo' => 'nullable',
             'dcto_recovery' => 'nullable',
             'monto_campana' => 'nullable',
-
-
-
-            // 'nombre' => 'required',
-            // 'apellido' => 'nullable',
-            // 'numero' => 'nullable',
 
 
         ];

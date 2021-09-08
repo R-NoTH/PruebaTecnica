@@ -54,7 +54,6 @@
                 </form>
                 <form action="{{ route('updatePagos') }}" method="post" enctype="multipart/form-data">
                     <h3>Actualizar pagos</h3>
-
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-9">
@@ -70,11 +69,6 @@
                 </form>
                 <div class="row">
                     <div class="container pt-5">
-
-                        {{-- <div class="mb-3">
-                            <label for="updateDate" class="form-label">ultima echa de actualizacion</label>
-                            <input type="text" class="form-control" id="updateDate" placeholder="22-07-89">
-                        </div> --}}
                         <table class="table">
                             <thead>
                                 <tr>
@@ -85,12 +79,21 @@
                             </thead>
                             <tbody>
 
+                                @if ($updateImports == null)
 
-                                <tr>
-                                    <td>{{ $updateImports->id }}</td>
-                                    <td>{{ $updateImports->registroActualizacion }}</td>
+                                    <tr>
+                                        <td>No hay Registros</td>
+                                        <td></td>
 
-                                </tr>
+                                    </tr>
+
+                                @else
+                                    <tr>
+                                        <td>{{ $updateImports->id }}</td>
+                                        <td>{{ $updateImports->registroActualizacion }}</td>
+
+                                    </tr>
+                                @endif
 
                             </tbody>
                         </table>

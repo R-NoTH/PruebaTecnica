@@ -9,9 +9,4 @@ class Base_pago extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-    public function baseClientes()
-    {
-        return $this->hasMany(Base_cliente::class);
-    }
 }

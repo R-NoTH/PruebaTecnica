@@ -10,11 +10,6 @@ class Base_cliente extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-    public function basePagos()
-    {
-        return $this->belongsTo(Base_pago::class);
-    }
     public function consultaIdRepetidos()
     {
         $sql = 'SELECT dni,COUNT(*) FROM `base_clientes` GROUP BY dni HAVING COUNT(*) > 1';
