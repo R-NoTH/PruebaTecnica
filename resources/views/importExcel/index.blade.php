@@ -69,10 +69,47 @@
                     </div>
                 </form>
                 <div class="row">
-                    <div class="col-9">
-                        <a href="{{ route('exports') }}">Exportar Sabada De Datos</a>
+                    <div class="container pt-5">
+
+                        {{-- <div class="mb-3">
+                            <label for="updateDate" class="form-label">ultima echa de actualizacion</label>
+                            <input type="text" class="form-control" id="updateDate" placeholder="22-07-89">
+                        </div> --}}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Ultima fecha de actualización del archivo Base_pagos</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <tr>
+                                    <td>{{ $updateImports->id }}</td>
+                                    <td>{{ $updateImports->registroActualizacion }}</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+            </div>
+            <br><br><br><br><br><br>
+            <div class="row">
+
+                <div class="col-6">
+                    <a href="{{ route('exports') }}" class="btn btn-dark">Exportar Sabada De Datos</a>
+                </div>
+
+                <div class="col-6">
+                    <a href="{{ route('frecuanciaBaseCliente') }}" class="btn btn-dark">Frecuencia de existencia de
+                        cada
+                        cliente</a>
+                </div>
+
             </div>
         </div>
     </div>

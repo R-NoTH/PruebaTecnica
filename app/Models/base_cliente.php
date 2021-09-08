@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Base_cliente extends Model
 {
@@ -13,5 +14,11 @@ class Base_cliente extends Model
     public function basePagos()
     {
         return $this->belongsTo(Base_pago::class);
+    }
+    public function consultaIdRepetidos()
+    {
+        $sql = 'SELECT dni,COUNT(*) FROM `base_clientes` GROUP BY dni HAVING COUNT(*) > 1';
+        $consulta = DB::select($sql);
+        return $consulta;
     }
 }

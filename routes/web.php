@@ -42,3 +42,8 @@ Route::get(
     '/exports',
     [ImportController::class, 'export']
 )->name('exports');
+
+Route::get(
+    '/frecuanciaBaseCliente',
+    [ImportController::class, 'frecuanciaBaseCliente']
+)->name('frecuanciaBaseCliente');

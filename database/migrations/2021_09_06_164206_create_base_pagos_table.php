@@ -15,7 +15,7 @@ class CreateBasePagosTable extends Migration
     {
         Schema::create('base_pagos', function (Blueprint $table) {
             $table->id();
-            $table->string('fecha_emision_reporte')->nullable();
+            $table->date('fecha_emision_reporte')->nullable();
             $table->string('codigo')->nullable();
             $table->integer('tipo_identificacion_cliente')->nullable();
             $table->integer('numero_identificacion_cliente')->nullable();

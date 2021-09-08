@@ -27,9 +27,13 @@ class ClientesImport implements
      */
     public function model(array $row)
     {
+        //filtros de nombre
+        $nombre = $row['fcctenombre'];
+        $nombre = mb_strtoupper($nombre);
+        $nombre = str_replace(' ', '_', $nombre);
+        $nombre = str_replace('Ñ', 'N', $nombre);
 
         ++$this->numRows;
-        // dd($row);
 
         return new Base_cliente([
 
@@ -42,7 +46,7 @@ class ClientesImport implements
             'periodo_atraso' => $row['periodo_atraso'],
             'dia_atraso' => $row['dia_atraso'],
             'requerido'  => $row['requerido'],
-            'fcctenombre' => $row['fcctenombre'],
+            'fcctenombre' => $nombre,
             'dni' => $row['dni'],
             'fcctesexo' => $row['fcctesexo'],
             'fec_nac' => $row['fec_nac'],
